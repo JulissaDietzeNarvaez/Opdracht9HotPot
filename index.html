@@ -1,0 +1,120 @@
+<!DOCTYPE html>     <!-- Beginning of the html -->
+
+<head>              <!-- Start where all the linked items are -->
+    <link rel="stylesheet" type="text/css" href="../CSS/indexstyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Hot Pot</title>
+</head>             <!-- End where all the linked items are -->
+
+<body>              <!-- Start body -->
+
+<div class="container">     <!-- Start container for the linked menu -->
+    <div class="logo">
+        <img src="../Photos/hotpotred.png" alt="" width="130"/>
+    </div>
+        <nav>
+          <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="sushi.html">Sushi</a></li>
+            <li><a href="hotpot.html">Hot Pot</a></li>
+            <li><a href="noodles.html">Noodles</a></li>
+            <li><a href="checkout.html" class="waves-effect waves-light btn"><i class="material-icons left">add_shopping_cart</i>Check out</a></li>
+          </ul>
+        </nav>
+</div>                      <!-- End container for the linked menu -->
+<hr/>                       <!-- Line through the page beneath the navigation -->
+
+<br>
+<center><img src="../Photos/headerhotpot2.jpg"></center>        <!-- image used as header -->
+<br>
+<br>
+
+
+<center><div class="content-box-1" width="80%">  <!-- content box for text -->
+<h1 width="80%">Hot Pot - Take Away</h1>
+<p>Hallo, wij zijn Hot Pot en gelocaliseerd in Heerlen, op basis van aanvraag van onze klanten hebben wij nu ook een take away service geopend via deze website.
+    Bekijk ons aanbod in de menu balk, bestel, betaal en ontvang! 
+    <br>
+    Even kort over ons; Wij zijn Hot Pot, al 20 jaar één van de meest succesvolle restaurantketens in Heerlen. Onze zaak is begonnen met een droom en is uiteindelijk
+    werkelijkheid geworden. Al 20 jaar lang serveren wij kwaliteit eten. Onze keukens zijn bemand met speciaal getrainde chef's voor de meest indrukwekkende aziatische 
+    delicatessen. Onze specialiteiten zijn onze hot pot gerechten en onze verse sushi. Daarnaast hebben we een uitgebreid assortiment van de meest gevarieerde soorten 
+    instant noodles. 
+    <br>
+</p>
+</div></center>     
+<hr/>
+
+
+  <div class="text">
+    <p>Bestel, betaal en</p>
+    </span>
+      <span class="word wisteria">ontvang.
+  </span>
+   
+    </p>
+  </div>
+
+  <script>
+  var words = document.getElementsByClassName('word');
+  var wordArray = [];
+  var currentWord = 0;
+  
+  words[currentWord].style.opacity = 1;
+  for (var i = 0; i < words.length; i++) {
+    splitLetters(words[i]);
+  }
+  
+  function changeWord() {
+    var cw = wordArray[currentWord];
+    var nw = currentWord == words.length-1 ? wordArray[0] : wordArray[currentWord+1];
+    for (var i = 0; i < cw.length; i++) {
+      animateLetterOut(cw, i);
+    }
+    
+    for (var i = 0; i < nw.length; i++) {
+      nw[i].className = 'letter behind';
+      nw[0].parentElement.style.opacity = 1;
+      animateLetterIn(nw, i);
+    }
+    
+    currentWord = (currentWord == wordArray.length-1) ? 0 : currentWord+1;
+  }
+  
+  function animateLetterOut(cw, i) {
+    setTimeout(function() {
+          cw[i].className = 'letter out';
+    }, i*80);
+  }
+  
+  function animateLetterIn(nw, i) {
+    setTimeout(function() {
+          nw[i].className = 'letter in';
+    }, 340+(i*80));
+  }
+  
+  function splitLetters(word) {
+    var content = word.innerHTML;
+    word.innerHTML = '';
+    var letters = [];
+    for (var i = 0; i < content.length; i++) {
+      var letter = document.createElement('span');
+      letter.className = 'letter';
+      letter.innerHTML = content.charAt(i);
+      word.appendChild(letter);
+      letters.push(letter);
+    }
+    
+    wordArray.push(letters);
+  }
+  
+  changeWord();
+  setInterval(changeWord, 4000);
+</script>
+  
+
+
+</body>             <!-- End body -->
+</html>             <!-- ENd of the html -->
